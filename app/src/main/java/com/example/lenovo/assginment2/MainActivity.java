@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
     //to append or set text in screen to 0-9 number
     public void numberZero(View view) {
-        if (!showNumber.getText().equals("0"))
+        if (!showNumber.getText().equals("0")||!showNumber.getText().equals("0.0"))
 
             showNumber.append(0 + "");
     }
 
     public void numberOne(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(1 + "");
 
         } else {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberTwo(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(2 + "");
 
         } else
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberThree(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(3 + "");
 
         } else
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberFour(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(4 + "");
 
         } else
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberFive(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(5 + "");
 
         } else
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberSix(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(6 + "");
 
         } else
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberSeven(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(7 + "");
 
         } else
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberEight(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(8 + "");
 
         } else
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberNine(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(9 + "");
         } else
             showNumber.append(9 + "");
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     //if click sum button to summation number in text and after number and operation plus
     public void sum(View view) {
-        if (!showNumber.getText().equals(null) && !showNumber.getText().equals("")) {
+        if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             number = Double.parseDouble(showNumber.getText() + "");//get number in text
             if (multipleOps)//is multi operation
                 stackOperation();//call the method calculate in past operation
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     //if click sub button to subtract number in text and after number and operation sub
 
     public void sub(View view) {
-        if (!showNumber.getText().equals(null) && !showNumber.getText().equals("")) {
+        if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             number = Double.parseDouble(showNumber.getText() + "");
             if (multipleOps)//is sub operation
                 stackOperation();//call the method calculate in past operation
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
     //if click div button to division number in text and after number and operation div
 
     public void div(View view) {
-        if (!showNumber.getText().equals(null) && !showNumber.getText().equals("")) {
+        if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             number = Double.parseDouble(showNumber.getText() + "");
             if (multipleOps)//is div operation
                 stackOperation();//call the method calculate in past operation
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     //if click multiply button to multiplied number in text and after number and operation div
 
     public void multiply(View view) {
-        if (!showNumber.getText().equals(null) && !showNumber.getText().equals("")) {
+        if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             number = Double.parseDouble(showNumber.getText() + "");
             if (multipleOps)
                 stackOperation();
@@ -196,26 +196,28 @@ public class MainActivity extends AppCompatActivity {
         if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             showNumber.setText(showNumber.getText().subSequence(0, showNumber.getText().length() - 1));
         } else
-            return;
+            return "";
     }
 
     //set negative number  is positive
     public void negative(View view) {
+        if(!showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")){
         if (stackingResult > 0.0)
             stackingResult *= -1.0;
         showNumber.setText(stackingResult + "");
+        }
     }
 
     //to get in screen and set in memory
     public void saveToMemo(View view) {
-        if(!showNumber.getText().equals(""))
+        if(!showNumber.getText().equals("")||showNumber.getText().equals(null))
             this.vlaueMemo = Double.parseDouble(showNumber.getText() + "");
         showNumber.setText("");
     }
 
     //to get in memory value and set in screen
     public void recordToMemo(View view) {
-        if (showNumber.getText().equals("0")) {
+        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(vlaueMemo + "");
         } else
             showNumber.append(vlaueMemo + "");
