@@ -195,17 +195,12 @@ public class MainActivity extends AppCompatActivity {
     public void back(View view) {
         if (!showNumber.getText().equals(null) || !showNumber.getText().equals("")) {
             showNumber.setText(showNumber.getText().subSequence(0, showNumber.getText().length() - 1));
-        } else
-            return "";
+        }
     }
 
     //set negative number  is positive
     public void negative(View view) {
-        if(!showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")){
-        if (stackingResult > 0.0)
-            stackingResult *= -1.0;
-        showNumber.setText(stackingResult + "");
-        }
+        showNumber.setText(Double.parseDouble(showNumber.getText()+"")*-1+ "");
     }
 
     //to get in screen and set in memory
@@ -213,14 +208,15 @@ public class MainActivity extends AppCompatActivity {
         if(!showNumber.getText().equals("")||showNumber.getText().equals(null))
             this.vlaueMemo = Double.parseDouble(showNumber.getText() + "");
         showNumber.setText("");
+        stackingResult = 0.0;
+        multipleOps = false;
+        lastOp = "";
     }
 
     //to get in memory value and set in screen
     public void recordToMemo(View view) {
-        if (showNumber.getText().equals("0")||!showNumber.getText().equals("0.0")) {
             showNumber.setText(vlaueMemo + "");
-        } else
-            showNumber.append(vlaueMemo + "");
+
     }
 
     //method to clear memory
