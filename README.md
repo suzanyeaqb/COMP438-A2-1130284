@@ -1,3 +1,3 @@
 # COMP438-A2-1130284
-Suzan Yeaaqba
+Suzan Yeaqba
 1130284
